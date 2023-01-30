@@ -53,7 +53,7 @@ namespace _01_Demanda
             
             if (parcela >= 12 && parcela <= 48)
             {
-               
+             
                     this._saldo = emprestimo;
                     double juro = emprestimo * 2 / 100 * parcela;
                     this.saldoDevedor = juro + emprestimo;
@@ -61,9 +61,8 @@ namespace _01_Demanda
                     Console.WriteLine("Saldo a pagar com o juros: " + this.saldoDevedor);
                     Console.ReadLine();
                     Console.WriteLine();
-
                     return true;
-              
+            
             }
             else  
             {
@@ -72,7 +71,6 @@ namespace _01_Demanda
                 Console.WriteLine(" #  PARCELAMENTO RECUSADO  # ");
                 Console.ReadLine();
                 Console.WriteLine();
-           
                 return true;
             }
        
@@ -87,10 +85,7 @@ namespace _01_Demanda
                 Console.Clear();
                 return false;
             }
-         
             return true; 
-           
-
         }
         public bool Depositar(double valor)
         {
@@ -99,22 +94,20 @@ namespace _01_Demanda
                 Console.WriteLine("                 # DEPOSITO NEGADO # ");
                 Console.WriteLine("Não é possivel depositar numeros negativos ou igual a 0");
                 Console.ReadLine();
-                Console.WriteLine();
-           return false;
+               
+                    return false;
             }
             if (valor > 100000)
             {
                 Console.WriteLine("       # DEPOSITO NEGADO #");
                 Console.WriteLine("Não é possivel depositar um valor acima de R$ 100000 ");
                 Console.ReadLine();
-                Console.WriteLine();
+             
                 return false;
             }
             this.Saldo += valor;
             Console.WriteLine("           # DEPOSITO ACEITO # ");
             Console.WriteLine("O deposito de " + valor + "$ foi realizado com SUCESSO!!");
-            Console.WriteLine();
-
             return true;
         }
         public bool Sacar(double valor)
@@ -144,7 +137,6 @@ namespace _01_Demanda
         }
         public bool Tranferencia( double valor,  ContaCorrente contaDestino)
         {
-          
             if (valor > Saldo)
             {
                 Console.WriteLine("        # TRANFERENCIA NEGADO #       ");

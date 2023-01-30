@@ -3,9 +3,21 @@ using System.Runtime.CompilerServices;
 
 namespace _01_Demanda
 { 
-    public static class PedindoEmprestimo
+    public  class PedindoEmprestimo
     {
-        public static void Entrar(ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        public PedindoEmprestimo (ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        {
+            Conta = conta;
+            Conta2 = conta2;
+            Conta3 = conta3;
+            Conta4 = conta4;
+        }
+        public ContaCorrente Conta { get; set; }    
+        public ContaCorrente Conta2 { get; set; }
+        public ContaCorrente Conta3 { get; set; }
+        public ContaCorrente Conta4 { get; set; }
+
+        public  void Entrar() 
         {   
             Console.WriteLine("Escolhar as opções: ");
             Console.WriteLine(" 1 - Depositar");
@@ -22,44 +34,41 @@ namespace _01_Demanda
                 // DEPOSITO 
                 case 1:
 
-                    Depositar(conta, conta2, conta3, conta4);
+                    Depositar();
                    
                 break;
-
 
                 //SAQUE
                 case 2:
 
-                    Saque(conta, conta2, conta3, conta4);
+                    Saque();
 
                 break;
 
                 // TRANFERENCIA  
                 case 3:
                     
-                     ValidarTranferencia(conta, conta2, conta3, conta4);
+                     ValidarTranferencia();
                     
                  break;
 
                 // EMPRESTIMO 
                 case 4:
 
-                   AvaliarEmprestimo(conta, conta2, conta3, conta4);
+                   AvaliarEmprestimo();
                     
                 break;
 
                   // MOSTRARSALDO
                 case 5:
-                    MostrarSaldo(conta, conta2, conta3, conta4);
+                    MostrarSaldo();
                     break;
 
-                // SAIR DO SISTEMA 
-
                 case 6:
-
-                
-                    break; 
-               
+                    Console.WriteLine();
+                    Console.WriteLine("Tecle enter prar sair do programa ");
+                    Console.ReadLine();
+                    throw new SystemException();
                     
                 default:
                     Console.WriteLine("");
@@ -69,10 +78,10 @@ namespace _01_Demanda
                     break;
                    
             }
-
+           
         }
 
-        private static string? Depositar(ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        private  string? Depositar()
         {
             Console.WriteLine("Solicitação de Deposito confirmado  !!");
             Console.WriteLine(" Inseri o nome do titular ");
@@ -80,45 +89,45 @@ namespace _01_Demanda
             Console.WriteLine();
             switch (nomeTitular)
             {
-                case "Gustavo":
+                case "Mariana":
                     {
                         Console.Clear();
-                        Console.WriteLine("Nome do titular: GUSTAVO DEMITRHY ");
-                        Console.WriteLine(value: "Saldo: R$ " + conta.Saldo + " Reais");
+                        Console.WriteLine("Nome do titular: " + Conta.Clientes);
+                        Console.WriteLine($"Saldo: R$ { Conta.Saldo }  Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
                         var Valor10 = double.Parse(Console.ReadLine());
-                        conta.Depositar(Valor10);
-                        Console.WriteLine("Saldo atual: R$ " + conta.Saldo + " Reias");
+                        Conta.Depositar(Valor10);
+                        Console.WriteLine($"Saldo atual: R$  { Conta.Saldo } Reias");
                         Console.ReadLine();
                         Console.Clear();
 
                     }
                     break;
-                case "Pedro":
+                case "Gustavo":
                     {
                         Console.Clear();
-                        Console.WriteLine("Nome do titular: PEDRO DE SOUSA");
-                        Console.WriteLine(value: "Saldo: R$ " + conta2.Saldo + " Reais");
+                        Console.WriteLine("Nome do titular: " + Conta2.Clientes);
+                        Console.WriteLine( "Saldo: R$ " + Conta2.Saldo + " Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
                         var valor20 = double.Parse(Console.ReadLine());
-                        conta2.Depositar(valor20);
-                        Console.WriteLine(value: "Saldo atual: R$ " + conta2.Saldo + " Reias");
+                        Conta2.Depositar(valor20);
+                        Console.WriteLine( "Saldo atual: R$ " + Conta2.Saldo + " Reias");
                         Console.ReadLine();
                         Console.Clear();
                     }
                     break;
-                case "Cristiane":
+                case "Kaeliny":
                     {
                         Console.Clear();
-                        Console.WriteLine("Nome do titular: CRISTIANE OLIVEIRA ");
-                        Console.WriteLine(value: "Saldo: R$ " + conta3.Saldo + " Reais");
+                        Console.WriteLine("Nome do titular:  " + Conta3.Clientes);
+                        Console.WriteLine(value: "Saldo: R$ " + Conta3.Saldo + " Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
                         var valor30 = double.Parse(Console.ReadLine ());
-                        conta3.Depositar(valor30);
-                        Console.WriteLine(value: "Saldo atual: R$ " + conta3.Saldo + " Reias");
+                        Conta3.Depositar(valor30);
+                        Console.WriteLine(value: "Saldo atual: R$ " + Conta3.Saldo + " Reias");
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -126,13 +135,13 @@ namespace _01_Demanda
                 case "Douglas":
                     {
                         Console.Clear();
-                        Console.WriteLine("Nome do titular: DOUGLAS NASCIMENTO ");
-                        Console.WriteLine(value: "Saldo: R$ " + conta4.Saldo + " Reais");
+                        Console.WriteLine("Nome do titular: " + Conta4.Clientes);
+                        Console.WriteLine(value: "Saldo: R$ " + Conta4.Saldo + " Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
                         var valor40 = double.Parse(Console.ReadLine());
-                        conta4.Depositar(valor40);
-                        Console.WriteLine(value: "Saldo atual: R$ " + conta4.Saldo + " Reias");
+                        Conta4.Depositar(valor40);
+                        Console.WriteLine(value: "Saldo atual: R$ " + Conta4.Saldo + " Reias");
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -148,7 +157,7 @@ namespace _01_Demanda
             return nomeTitular;
         }
 
-        private static void Saque(ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        private  void Saque()
         {
             Console.Clear();
             Console.WriteLine("Solicitação de Saque cofirmado com sucesso !!");
@@ -159,56 +168,56 @@ namespace _01_Demanda
             switch (nometitular)
             {
 
-                case "Gustavo":
+                case "Mariana":
                     Console.Clear();
-                    Console.WriteLine("Nome do titular: GUSTAVO DEMITRHY ");
-                    Console.WriteLine("Saldo: R$ " + conta.Saldo + " Reais");
+                    Console.WriteLine("Nome do titular: " + Conta.Clientes);
+                    Console.WriteLine("Saldo: R$ " + Conta.Saldo + " Reais");
                     Console.WriteLine("");
                     Console.WriteLine("Digite o Valor do Saque :");
 
                     var valor1000 = double.Parse(Console.ReadLine());
-                    conta.Sacar(valor1000);
-                    Console.WriteLine("Saldo atual: R$ " + conta.Saldo + " Reias");
+                    Conta.Sacar(valor1000);
+                    Console.WriteLine("Saldo atual: R$ " + Conta.Saldo + " Reias");
                     Console.ReadLine();
                     Console.Clear();
                     break;
 
-                case "Pedro":
+                case "Gustavo":
                     Console.Clear();
-                    Console.WriteLine("Nome do titular: PEDRO DE SOUSA ");
-                    Console.WriteLine("Saldo: R$ " + conta2.Saldo + " Reais");
+                    Console.WriteLine("Nome do titular: " + Conta2.Clientes);
+                    Console.WriteLine("Saldo: R$ " + Conta2.Saldo + " Reais");
                     Console.WriteLine("");
                     Console.WriteLine("Digite o Valor do Saque :");
                     var valor2000 = double.Parse(Console.ReadLine());
-                    conta2.Sacar(valor2000);
-                    Console.WriteLine("Saldo atual: R$ " + conta2.Saldo + " Reias");
+                    Conta2.Sacar(valor2000);
+                    Console.WriteLine("Saldo atual: R$ " + Conta2.Saldo + " Reias");
                     Console.ReadLine();
                     Console.Clear();
                     break;
 
-                case "Cristiane":
+                case "Kaeliny ":
                     Console.Clear();
-                    Console.WriteLine("Nome do titular:  CRISTIANE OLIVEIRA ");
-                    Console.WriteLine("Saldo: R$ " + conta3.Saldo + " Reais");
+                    Console.WriteLine("Nome do titular:   " + Conta3.Clientes);
+                    Console.WriteLine("Saldo: R$ " + Conta3.Saldo + " Reais");
                     Console.WriteLine("");
                     Console.WriteLine("Digite o Valor do Saque :");
                     var valor3000 = double.Parse(Console.ReadLine());
-                    conta3.Sacar(valor3000);
-                    Console.WriteLine("Saldo atual: R$ " + conta3.Saldo + " Reias");
+                    Conta3.Sacar(valor3000);
+                    Console.WriteLine("Saldo atual: R$ " + Conta3.Saldo + " Reias");
                     Console.ReadLine();
                     Console.Clear();
                     break;
 
                 case "Douglas":
                     Console.Clear();
-                    Console.WriteLine("Nome do titular: DOUGLAS NASCIMENTO ");
-                    Console.WriteLine("Saldo: R$ " + conta4.Saldo + " Reais");
+                    Console.WriteLine("Nome do titular: " + Conta4.Clientes);
+                    Console.WriteLine("Saldo: R$ " + Conta4.Saldo + " Reais");
                     Console.WriteLine("");
                     Console.WriteLine("Digite o Valor do Saque :");
                     var valor4000 = double.Parse(Console.ReadLine());
 
-                    conta4.Sacar(valor4000);
-                    Console.WriteLine("Saldo atual: R$ " + conta4.Saldo + " Reias");
+                    Conta4.Sacar(valor4000);
+                    Console.WriteLine("Saldo atual: R$ " + Conta4.Saldo + " Reias");
                     Console.ReadLine();
                     Console.Clear();
                     break;
@@ -221,7 +230,7 @@ namespace _01_Demanda
             }
         }
 
-        private static string? AvaliarEmprestimo(ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        private  string? AvaliarEmprestimo()
         {
             Console.Clear();
             Console.WriteLine("Soliticação  de Emprestimo cofirmado com sucesso");
@@ -231,21 +240,21 @@ namespace _01_Demanda
 
             ContaCorrente contaTitular;
 
-            if (nomeTitular.Contains("Gustavo"))
+            if (nomeTitular.Contains("Mariana"))
             {
-                contaTitular = conta;
+                contaTitular = Conta;
             }
-            else if (nomeTitular.Contains("Pedro"))
+            else if (nomeTitular.Contains("Gustavo"))
             {
-                contaTitular = conta2;
+                contaTitular = Conta2;
             }
-            else if (nomeTitular.Contains("Cristiane"))
+            else if (nomeTitular.Contains("Kaeliny"))
             {
-                contaTitular = conta3;
+                contaTitular = Conta3;
             }
             else if (nomeTitular.Contains("Douglas"))
             {
-                contaTitular = conta4;
+                contaTitular = Conta4;
             }
             else
             {
@@ -258,11 +267,12 @@ namespace _01_Demanda
             return nomeTitular;
         }
 
-        private static void Emprestimo(ContaCorrente contaTitular)
+        private  void Emprestimo(ContaCorrente contaTitular)
         {
+
             Console.Clear();
-            Console.WriteLine("BEM VINDO AO EMPRESTIMO SENHOR(A): " +contaTitular.Clientes);
-            Console.WriteLine($"Seu saldo na conta é de: " +contaTitular.Saldo);
+            Console.WriteLine("BEM VINDO AO EMPRESTIMO SENHOR(A): " + contaTitular.Clientes);
+            Console.WriteLine($"Seu saldo na conta é de: {contaTitular.Saldo} ");
             Console.WriteLine("");
             Console.WriteLine("Lembrando que o maximo do Emprestimo é de: R$ 100.000,00 reais ");
             contaTitular.Limite();
@@ -280,7 +290,7 @@ namespace _01_Demanda
 
         } 
               
-        private static void ValidarTranferencia(ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        private  string? ValidarTranferencia()
         {
             
             Console.Clear();
@@ -293,50 +303,62 @@ namespace _01_Demanda
 
             ContaCorrente contaOrigem;
             ContaCorrente contaDestino;
-
-
-            if (nomeTitular.Contains("Gustavo"))
-            {
-                contaOrigem = conta;
-            } 
-            else if (nomeTitular.Contains("Pedro"))
-            {
-                contaOrigem = conta2;
-            }
-            else if (nomeTitular.Contains("Cristiane"))
-            {
-                contaOrigem = conta3;
-            }
-            else 
-            {
-                contaOrigem = conta4;
-            }
+         
            
+            if (nomeTitular.Contains("Mariana"))
+            {
+                contaOrigem = Conta;
+            } 
+            else if (nomeTitular.Contains("Gustavo"))
+            {
+                contaOrigem = Conta2;
+            }
+            else if (nomeTitular.Contains("Kaeliny"))
+            {
+                contaOrigem = Conta3;
+            }
+            else if (nomeTitular.Contains("Douglas"))
+            {
+                contaOrigem = Conta4;
+            }
+            else
+            {
+                Console.WriteLine("NOME INVALIDO");
+                Console.ReadLine();
+                return nomeTitular;
+
+            }
 
 
-        
-            if (nomeTitularVaiReceber.Contains("Gustavo"))
+            if (nomeTitularVaiReceber.Contains("Mariana"))
             {
-                contaDestino= conta;
+                contaDestino= Conta;
             }
-            else if (nomeTitularVaiReceber.Contains("Pedro"))
+            else if (nomeTitularVaiReceber.Contains("Gustavo"))
             {
-                contaDestino= conta2;
+                contaDestino= Conta2;
             }
-            else if (nomeTitularVaiReceber.Contains("Cristiane"))
+            else if (nomeTitularVaiReceber.Contains("Kaeliny"))
             {
-                contaDestino= conta3;
+                contaDestino= Conta3;
             }
-            else 
+            else if (nomeTitular.Contains("Douglas"))
             {
-                contaDestino= conta4;
+                contaDestino= Conta4;
+            }
+            else
+            {
+                Console.WriteLine("NOME INVALIDO");
+                Console.ReadLine();
+                return nomeTitularVaiReceber;
+            
             }
 
             Transferir(contaOrigem, contaDestino);
-
+            return nomeTitular;
         }
 
-        private static void Transferir(ContaCorrente contaOrigem, ContaCorrente contaDestino)
+        private  void Transferir(ContaCorrente contaOrigem, ContaCorrente contaDestino)
         { 
             Console.WriteLine("");
             Console.WriteLine("Por Favor,Digite o valor da transferencia: ");
@@ -352,7 +374,7 @@ namespace _01_Demanda
 
         }
 
-        private static void MostrarSaldo(ContaCorrente conta, ContaCorrente conta2, ContaCorrente conta3, ContaCorrente conta4)
+        private  void MostrarSaldo()
         {
             Console.WriteLine("Soliticação  de Mostra Saldo  cofirmado com sucesso");
             Console.WriteLine("Insire seu nome: ");
@@ -360,28 +382,28 @@ namespace _01_Demanda
             Console.WriteLine();
             switch (nomeTitular)
             {
-                case "Gustavo":
+                case "Mariana":
                     {
                         Console.WriteLine("");
-                        Console.WriteLine("Nome do titular:  GUSTAVO DEMITRHY ");
-                        Console.WriteLine("Seu saldo atual é de: " + conta.Saldo + " Reais ");
+                        Console.WriteLine("Nome do titular:  " + Conta.Clientes);
+                        Console.WriteLine("Seu saldo atual é de: " + Conta.Saldo + " Reais ");
                         Console.ReadLine();
                         Console.Clear();
                         break;
                     }
-                case "Pedro":
+                case "Gustavo":
                     {
                         Console.WriteLine("");
-                        Console.WriteLine("Nome do titular: PEDRO DE SOUSA ");
-                        Console.WriteLine("Seu saldo atual é de: " + conta2.Saldo + " Reais ");
+                        Console.WriteLine("Nome do titular:  " + Conta2.Clientes);
+                        Console.WriteLine("Seu saldo atual é de: " + Conta2.Saldo + " Reais ");
                         Console.ReadLine();
                         break;
                     }
-                case "Cristiane":
+                case "Kaeliny":
                     {
                         Console.WriteLine("");
-                        Console.WriteLine("Nome do titular: CRISTIANA OLIVEIRA ");
-                        Console.WriteLine("Seu saldo atual é de: " + conta3.Saldo + " Reais ");
+                        Console.WriteLine("Nome do titular: " + Conta3.Clientes);
+                        Console.WriteLine("Seu saldo atual é de: " + Conta3.Saldo + " Reais ");
                         Console.ReadLine();
                         Console.Clear();
                         break;
@@ -389,8 +411,8 @@ namespace _01_Demanda
                 case "Douglas":
                     {
                         Console.WriteLine("");
-                        Console.WriteLine("Nome do titular: DOUGLAS NASCIMENTO ");
-                        Console.WriteLine("Seu saldo atual é de: " + conta4.Saldo + " Reais ");
+                        Console.WriteLine("Nome do titular:  " + Conta4.Clientes );
+                        Console.WriteLine("Seu saldo atual é de: " + Conta4.Saldo + " Reais ");
                         Console.ReadLine();
                         Console.Clear();
 
@@ -409,3 +431,4 @@ namespace _01_Demanda
 }
 
 
+       
