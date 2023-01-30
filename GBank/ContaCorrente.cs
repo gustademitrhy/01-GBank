@@ -51,10 +51,9 @@ namespace _01_Demanda
         public bool Parcelamento(double parcela, double emprestimo)
         {
             
-            if (parcela >= 12 || parcela <= 48)
+            if (parcela >= 12 && parcela <= 48)
             {
-                if (parcela <= 48)
-                {
+               
                     this._saldo = emprestimo;
                     double juro = emprestimo * 2 / 100 * parcela;
                     this.saldoDevedor = juro + emprestimo;
@@ -64,8 +63,7 @@ namespace _01_Demanda
                     Console.WriteLine();
 
                     return true;
-                }
-                return true;
+              
             }
             else  
             {
