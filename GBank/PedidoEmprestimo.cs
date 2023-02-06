@@ -267,7 +267,7 @@ namespace _01_Demanda
             return nomeTitular;
         }
 
-        private  void Emprestimo(ContaCorrente contaTitular)
+        private static void Emprestimo(ContaCorrente contaTitular)
         {
 
             Console.Clear();
@@ -358,7 +358,7 @@ namespace _01_Demanda
             return nomeTitular;
         }
 
-        private  void Transferir(ContaCorrente contaOrigem, ContaCorrente contaDestino)
+        private static void Transferir(ContaCorrente contaOrigem, ContaCorrente contaDestino)
         { 
             Console.WriteLine("");
             Console.WriteLine("Por Favor,Digite o valor da transferencia: ");
