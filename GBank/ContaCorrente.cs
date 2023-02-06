@@ -48,6 +48,7 @@ namespace _01_Demanda
 
             Console.WriteLine($"Total de emprestimo disponivel: {this.LimiteNota}");
         }
+
         public bool Parcelamento(double parcela, double emprestimo)
         {
             
@@ -75,6 +76,7 @@ namespace _01_Demanda
             }
        
         }
+
         public bool DepositarEmprestimo(double V)
         {
             if (V > this.LimiteNota)
@@ -87,6 +89,7 @@ namespace _01_Demanda
             }
             return true; 
         }
+
         public bool Depositar(double valor)
         {
             if (valor <= 0)
@@ -110,6 +113,7 @@ namespace _01_Demanda
             Console.WriteLine("O deposito de " + valor + "$ foi realizado com SUCESSO!!");
             return true;
         }
+
         public bool Sacar(double valor)
         {
             if (valor > Saldo)
@@ -135,6 +139,7 @@ namespace _01_Demanda
             Console.WriteLine();
             return true;
         }
+
         public bool Tranferencia( double valor,  ContaCorrente contaDestino)
         {
             if (valor > Saldo)

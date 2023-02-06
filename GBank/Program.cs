@@ -1,11 +1,6 @@
 ﻿using _01_Demanda;
 
 
-Clientes cliente = new("Mariana de Fatima", 9);
-Clientes cliente2 = new("Gustavo Demitrhy", 8);
-Clientes cliente3 = new("Kaeliny Rodrigues ", 6);
-Clientes cliente4 = new("Douglas Nascimento ", 10);
-
 
 var MarianaDeFatima = new ContaCorrente("MARIANA DE FATIMA ",9);
 var GustavoDemitrhy = new ContaCorrente("GUSTAVO DEMITRHY",8);

@@ -87,18 +87,25 @@ namespace _01_Demanda
             Console.WriteLine(" Inseri o nome do titular ");
             var nomeTitular = Console.ReadLine();
             Console.WriteLine();
+            Depositar(nomeTitular);
+
+            return nomeTitular;
+        }
+
+        private void Depositar(string? nomeTitular)
+        {
             switch (nomeTitular)
             {
                 case "Mariana":
                     {
                         Console.Clear();
                         Console.WriteLine("Nome do titular: " + Conta.Clientes);
-                        Console.WriteLine($"Saldo: R$ { Conta.Saldo }  Reais");
+                        Console.WriteLine($"Saldo: R$ {Conta.Saldo}  Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
                         var Valor10 = double.Parse(Console.ReadLine());
                         Conta.Depositar(Valor10);
-                        Console.WriteLine($"Saldo atual: R$  { Conta.Saldo } Reias");
+                        Console.WriteLine($"Saldo atual: R$  {Conta.Saldo} Reias");
                         Console.ReadLine();
                         Console.Clear();
 
@@ -108,12 +115,12 @@ namespace _01_Demanda
                     {
                         Console.Clear();
                         Console.WriteLine("Nome do titular: " + Conta2.Clientes);
-                        Console.WriteLine( "Saldo: R$ " + Conta2.Saldo + " Reais");
+                        Console.WriteLine("Saldo: R$ " + Conta2.Saldo + " Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
                         var valor20 = double.Parse(Console.ReadLine());
                         Conta2.Depositar(valor20);
-                        Console.WriteLine( "Saldo atual: R$ " + Conta2.Saldo + " Reias");
+                        Console.WriteLine("Saldo atual: R$ " + Conta2.Saldo + " Reias");
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -125,7 +132,7 @@ namespace _01_Demanda
                         Console.WriteLine(value: "Saldo: R$ " + Conta3.Saldo + " Reais");
                         Console.WriteLine("");
                         Console.WriteLine("Digite o Valor do deposito:");
-                        var valor30 = double.Parse(Console.ReadLine ());
+                        var valor30 = double.Parse(Console.ReadLine());
                         Conta3.Depositar(valor30);
                         Console.WriteLine(value: "Saldo atual: R$ " + Conta3.Saldo + " Reias");
                         Console.ReadLine();
@@ -153,8 +160,6 @@ namespace _01_Demanda
 
                     break;
             }
-
-            return nomeTitular;
         }
 
         private  void Saque()
@@ -165,6 +170,11 @@ namespace _01_Demanda
             var nometitular = Console.ReadLine();
             Console.WriteLine();
 
+            AvaliarSaque(nometitular);
+        }
+
+        private void AvaliarSaque(string? nometitular)
+        {
             switch (nometitular)
             {
 
