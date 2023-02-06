@@ -87,12 +87,12 @@ namespace _01_Demanda
             Console.WriteLine(" Inseri o nome do titular ");
             var nomeTitular = Console.ReadLine();
             Console.WriteLine();
-            Depositar(nomeTitular);
+            AvaliarDeposito(nomeTitular);
 
             return nomeTitular;
         }
 
-        private void Depositar(string? nomeTitular)
+        private void AvaliarDeposito(string? nomeTitular)
         {
             switch (nomeTitular)
             {
