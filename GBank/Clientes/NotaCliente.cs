@@ -1,7 +1,4 @@
-﻿
-
-
-namespace _01_Demanda
+﻿namespace GBank.Clientes
 {
     public class Clientes
     {
@@ -12,12 +9,12 @@ namespace _01_Demanda
         {
             Nome = nome;
             Nota = nota;
-       
+
         }
-       
+
     }
 
- }
+}
 
 
 

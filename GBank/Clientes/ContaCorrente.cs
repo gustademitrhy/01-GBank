@@ -89,34 +89,32 @@ namespace _01_Demanda
             }
             return true; 
         }
+<<<<<<< HEAD:GBank/Clientes/ContaCorrente.cs
+        public bool Deposita(double valor)
+=======
 
         public bool Depositar(double valor)
+>>>>>>> f55567df24dcc739219831b6e90efd979eda0b5f:GBank/ContaCorrente.cs
         {
-            if (valor <= 0)
+            if (valor <= 0 || valor > 100000)
             {
                 Console.WriteLine("                 # DEPOSITO NEGADO # ");
                 Console.WriteLine("Não é possivel depositar numeros negativos ou igual a 0");
                 Console.ReadLine();
-               
-                    return false;
-            }
-            if (valor > 100000)
-            {
-                Console.WriteLine("       # DEPOSITO NEGADO #");
-                Console.WriteLine("Não é possivel depositar um valor acima de R$ 100000 ");
-                Console.ReadLine();
-             
                 return false;
             }
-            this.Saldo += valor;
-            Console.WriteLine("           # DEPOSITO ACEITO # ");
-            Console.WriteLine("O deposito de " + valor + "$ foi realizado com SUCESSO!!");
-            return true;
+            else
+            {
+                this.Saldo += valor;
+                Console.WriteLine("           # DEPOSITO ACEITO # ");
+                Console.WriteLine("O deposito de " + valor + "$ foi realizado com SUCESSO!!");
+                return true;
+            }
         }
 
         public bool Sacar(double valor)
         {
-            if (valor > Saldo)
+            if (valor > Saldo || valor <= 0)
             {
                 Console.WriteLine("           # SAQUE NEGADO #       ");
                 Console.WriteLine("  Não foi possivel realizar o saque  ");
@@ -124,25 +122,20 @@ namespace _01_Demanda
                 Console.WriteLine();
                 return false;
             }
-            if (valor <= 0)
+            else
             {
-                Console.WriteLine("            # SAQUE NEGADO #            ");
-                Console.WriteLine("   Não foi possivel realizar o saque  ");
+                this.Saldo -= valor;
+                Console.WriteLine("           # SAQUE ACEITO #");
+                Console.WriteLine("Saque de " + valor + "$ realizado com SUCESSO!!");
                 Console.ReadLine();
                 Console.WriteLine();
-                return false;
+                return true;
             }
-            this.Saldo -= valor;
-            Console.WriteLine("           # SAQUE ACEITO #"   );
-            Console.WriteLine("Saque de " + valor + "$ realizado com SUCESSO!!");
-            Console.ReadLine();
-            Console.WriteLine();
-            return true;
         }
 
         public bool Tranferencia( double valor,  ContaCorrente contaDestino)
         {
-            if (valor > Saldo)
+            if (valor > Saldo || valor <= 0)
             {
                 Console.WriteLine("        # TRANFERENCIA NEGADO #       ");
                 Console.WriteLine("       Saldo Infuciente na conta ");
@@ -151,24 +144,17 @@ namespace _01_Demanda
                 Console.Clear();
                 return false;
             }
-
-            if (valor <= 0)
+            else
             {
-                Console.WriteLine("             # TRANSFERENCIA NEGADO #           ");
-                Console.WriteLine("   Não foi possivel realizar a Tranferencia   ");
-                Console.ReadLine();
+                this.Saldo -= valor;
+                contaDestino.Saldo += valor;
+                Console.WriteLine("           # TRANSFERENCIA ACEITO #          ");
+                Console.WriteLine("  Tranferencia " + valor + " foi realizado com SUCESSO!!");
                 Console.WriteLine();
+                Console.ReadLine();
                 Console.Clear();
-                return false;
+                return true;
             }
-            this.Saldo -= valor;
-            contaDestino.Saldo += valor;
-            Console.WriteLine("           # TRANSFERENCIA ACEITO #          ");
-            Console.WriteLine("  Tranferencia " + valor + " foi realizado com SUCESSO!!");
-            Console.WriteLine();
-            Console.ReadLine();
-            Console.Clear();
-            return true;
         }
        
     
